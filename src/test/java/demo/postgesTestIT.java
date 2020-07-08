@@ -50,6 +50,7 @@ public class postgesTestIT {
 		System.out.println("=============spring.datasource.url============="+System.getenv("spring.datasource.url"));
 		System.out.println("=============spring.datasource.username============="+System.getenv("spring.datasource.username"));
 		System.out.println("=============spring.datasource.password============="+System.getenv("spring.datasource.password"));
+		System.out.println("=============itemRepository=========================="+itemRepository);
 		
 				itemRepository.save(new Item(4, "D"));
 		Assert.assertNotNull(itemRepository.findById(4));
