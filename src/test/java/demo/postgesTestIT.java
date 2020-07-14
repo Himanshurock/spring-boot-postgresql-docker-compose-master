@@ -28,7 +28,7 @@ public class postgesTestIT {
 	public void connnectionTest() {
 		
 		itemRepository.save(new Item(4, "TestPostgres"));
-		System.out.println("itemRepository.findById(4)====="+itemRepository.findById(4));
+		System.out.println("itemRepository.findById(4) Name====="+itemRepository.findById(4).get().getName());
 		Assert.assertNotNull(itemRepository.findById(4));
 		
 	}
