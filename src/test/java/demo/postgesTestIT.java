@@ -16,46 +16,19 @@ import com.example.repository.ItemRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
-//@DataJpaTest
 @ContextConfiguration(classes = DemoApplication.class)
 @EnableAutoConfiguration
 @ComponentScan("com.example")
-
-/*
- * @EntityScan("com.example.entity")
- * 
- * @EnableJpaRepositories
- */
 public class postgesTestIT {
 	
 	@Autowired
 	private ItemRepository itemRepository;
 	
-	//@Autowired
-	//TestEntityManager testEntityManager;
-	
-	/*
-	 * @Bean public JpaTransactionManager transactionManager() { return new
-	 * JpaTransactionManager(); }
-	 */
-	
-	
-	 /** @Bean public EntityManagerFactory entityManagerFactory() { return
-	 * EntityManagerFactory(); }
-	 */
-	
-	
 	@Test
 	public void connnectionTest() {
-		System.out.println("=============spring.datasource.url============="+System.getenv("spring.datasource.url"));
-		System.out.println("=============spring.datasource.username============="+System.getenv("spring.datasource.username"));
-		System.out.println("=============spring.datasource.password============="+System.getenv("spring.datasource.password"));
-		System.out.println("=============itemRepository=========================="+itemRepository);
 		
-				itemRepository.save(new Item(4, "D"));
+		itemRepository.save(new Item(4, "TestPostgres"));
 		Assert.assertNotNull(itemRepository.findById(4));
-		//Assert.assertNotNull(itemRepository.findOne(5));
 		
 	}
-
 }
